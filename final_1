@@ -1,0 +1,155 @@
+#include <iostream>
+using namespace std;
+
+
+///////////FUNCION 01 ////////////////////
+void function_01();
+void function_02();
+void function_03();
+void function_04();
+void function_05();
+void function_06();
+void function_07();
+
+int matriz[10][10];
+////////////NOMBRE//////////////////////////
+void nombre(){
+	cout << "///////////////////////////////////////////" << endl;
+    cout << "                " << "PARCIAL" << "            " << endl; //9
+	cout << "       " << "Olga Barreros y Sergio Sirena" << endl; //36
+	cout << "///////////////////////////////////////////" << endl;
+}
+////////////FUNCTION_01/////////////////////
+void function_01(){
+	srand(time(0));	
+	int aleatorio;
+	for(int i = 0;i<10;i++){
+		for(int j = 0; j<10;j++){
+			aleatorio =(rand() % 99);
+			matriz[i][j] = aleatorio;
+			
+		}
+				
+	}	
+}
+////////////FUNCTION_02/////////////////////
+void function_02(){
+	for(int i = 0;i<10;i++){
+		for(int j = 0; j<10;j++){
+			
+			if(matriz[i][j]>=10){
+				cout << matriz[i][j]<<" ";
+			}
+			else if(matriz[i][j] <10){
+				cout << matriz[i][j]<<"  ";	
+			}
+		}
+	cout << endl;
+	}
+	cout << endl << endl;
+}
+////////////FUNCTION_03/////////////////////
+void function_03(int a,int b){
+	
+	cout << "Ingrese el valor que remplazara el sitio escojido: " ;
+	int nuevo;
+	cin >>nuevo;
+	matriz[a][b] = nuevo;
+	function_02();
+	
+}
+////////////FUNCTION_04/////////////////////
+void function_04(){
+	for(int i = 0; i<=10;i++){
+		matriz[i][i] = 0;
+	}
+	function_02();
+	
+	
+}
+////////////FUNCTION_05/////////////////////
+void function_05(int a,int b, int c, int d = 0, int e = 0, int f = 0){
+
+	
+	for(int i = 0;i<10;i++){
+		for(int j = 0; j<10;j++){
+			if(matriz[i][j] == a){
+				d = d + 1;
+			}
+			else if(matriz[i][j]==b){
+				e = e + 1;
+			}
+			else if(matriz[i][j] ==c){
+				f = f +1;
+					
+			}
+		
+		}
+	}
+	cout << "El numero de veces que el valor " << a << " se repite es: "<< d << endl;
+	cout << "El numero de veces que el valor " << b << " se repite es: "<< e << endl;
+	cout << "El numero de veces que el valor " << c << " se repite es: "<< f << endl;
+	
+}
+////////////FUNCTION_06/////////////////////
+void function_06(int a, int b){
+	if((a<0)||(a > 100)||(b<100)||(b>200)){
+		cout << "Los argumentos ingresados no son validos"<< endl;
+	}
+	else{
+		int encontrado = 0;
+		for(int i = 0;i<10;i++){
+			for(int j = 0; j<10;j++){
+				if(matriz[i][j] == a){
+					encontrado = encontrado + 1;
+					matriz[i][j] = b;
+				}
+			}
+		}
+		if(encontrado > 0){	
+			cout << "Nueva matriz con el valor cambiado: " <<endl;
+			function_02();
+		}
+		else if(encontrado < 1){
+			cout << "El numero ingresdo no existe en la matriz" << endl;
+			
+		}
+	}
+}
+////////////FUNCTION_07/////////////////////
+void function_07(){
+	
+	for(int i = 0;i<10;i++){
+			for(int j = 0; j<10;j++){
+				if(matriz[i][j] % 5 == 0){
+					matriz[i][j] = matriz[i][j]*5;
+				}
+			}
+		}
+	function_02();
+	
+}
+////////////FUNCTION_08/////////////////////
+void function_08(){
+	for(int i = 0;i<10;i++){
+			for(int j = 0; j<10;j++){
+				matriz[i][j] = matriz[j][i];
+			}
+		}
+	function_02();
+	
+	
+}
+
+int main(){
+	nombre();
+	function_01();
+	function_02();
+	//function_03(0,0);
+	//function_04();
+	//function_05(12,14,2);	
+	//function_06(0,123);
+	//function_07();
+	//function_08();
+return 0;
+}
